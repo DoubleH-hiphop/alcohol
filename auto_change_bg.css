@@ -1,0 +1,76 @@
+.slider_container {
+    margin: 30px auto;
+    width: 300px;
+    height: 280px;
+    position: relative;
+    border-bottom-width: 100px;
+/* position: fixed;
+left: 0;
+top: 0;
+right: 0;
+bottom: 0;
+z-index: -1;  轉成背景*/ 
+}
+    
+    .slider_container div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    }
+
+    .slider_container div {
+        -webkit-animation: round 9s linear infinite;
+        animation: round 9s linear infinite;
+        }
+        
+        @-webkit-keyframes round {
+        4% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+
+        }
+        20% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+
+        }
+        24% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+
+        }
+        }
+        @keyframes round {
+        4% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+
+        }
+        20% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+  
+        }
+        24% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+
+        }
+        }
+
+        .slider_container div:nth-child(3) {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+            }
+            
+            .slider_container div:nth-child(2) {
+            -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+            }
+            
+            .slider_container div:nth-child(1) {
+            -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+            }
