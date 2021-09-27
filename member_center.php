@@ -11,7 +11,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="icon" href="img/liquor.png">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">  
 
   <link rel="stylesheet" href="css/switcher.css">
   <link rel="stylesheet" href="css/auto_change_bg.css">
@@ -40,8 +39,9 @@
               酒類文化介紹
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                <li><a class="dropdown-item" href="http://127.0.0.1/alcohol/introduce_whisky.html">威士忌 Whisky</a></li>
-                <li><a class="dropdown-item" href="http://127.0.0.1/alcohol/introduce_tequila.html">龍舌蘭 Tequila</a></li>
+                <li><a class="dropdown-item" href="#">威士忌 Whisky</a></li>
+                <li><a class="dropdown-item" href="#">白蘭地 Brandy</a></li>
+                <li><a class="dropdown-item" href="#">龍舌蘭 Tequila</a></li>
               </ul>
             </li>
 
@@ -50,81 +50,52 @@
                 酒類商品
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                  <li><a class="dropdown-item" href="#">威士忌 Whisky</a></li>
-                  <li><a class="dropdown-item" href="#">白蘭地 Brandy</a></li>
-                  <li><a class="dropdown-item" href="#">龍舌蘭 Tequila</a></li>
+                  <li><a class="dropdown-item" href="http://127.0.0.1/alcohol/introduce_whisky.html">威士忌 Whisky</a></li>
+                  <li><a class="dropdown-item" href="http://127.0.0.1/alcohol/introduce_tequila.html">龍舌蘭 Tequila</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link active" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                會員專區
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="http://127.0.0.1/alcohol/member_data.html">會員資料</a></li>
                 </ul>
               </li>
           </ul>
-          <ul class="navbar-nav my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item d-flex">
-              <a class="nav-link active" aria-current="page" href="http://127.0.0.1/alcohol/member_account.html">會員登入</a>
-            </li>
-          </ul>
+          <!-- switch background-color -->
+          <div class="theme-switcher">  
+            <input type="checkbox" id="switcher">  
+            <label for=switcher></label>  
+          </div>  
         </div>
       </div>
     </nav>
 
-<br>
-<!-- container -->
-<div>
-    <!--top container -->
-    <div class="slider_container">
-        <div>
-          <img src="img/gin.jfif" alt="Gin"/>
-          <span class="info"> <br> 琴酒</span>
-        </div>
-        <div>
-          <img src="img/whisky.jfif" alt="Whiskey"/>
-          <span class="info"> <br> 威士忌</span>
-        </div>
-        <div>
-          <img src="img/tequila.jfif" alt="tequila"/>
-          <span class="info"> <br> 龍舌蘭</span>
-        </div>
-    </div> 
-    <!--end top container -->
+<?php
+session_start();
+ $account = $_SESSION["account"]; 
+ $password = $_SESSION["password"]; 
 
-    <!-- middle container -->
-    <div class="slider_middle">
+ include('connect.php');
 
-        <!-- discount  -->
-        <div class="slider_discount ">
-            <div>
-              <img src="img/gin.jfif" alt="Gin"/>
-              <span class="info"> <br> 琴酒</span>
-            </div>
-            <div>
-              <img src="img/whisky.jfif" alt="Whiskey"/>
-              <span class="info"> <br> 威士忌</span>
-            </div>
-            <div>
-              <img src="img/tequila.jfif" alt="tequila"/>
-              <span class="info"> <br> 龍舌蘭</span>
-            </div>
-        </div>
-        <!-- end discount -->
-          
-        <!-- hot -->
-        <div class="slider_hot ">    
-            <div>
-              <img src="img/gin.jfif" alt="Gin"/>
-              <span class="info"> <br> 琴酒</span>
-            </div>
-            <div>
-              <img src="img/whisky.jfif" alt="Whiskey"/>
-              <span class="info"> <br> 威士忌</span>
-            </div>
-            <div>
-              <img src="img/tequila.jfif" alt="tequila"/>
-              <span class="info"> <br> 龍舌蘭</span>
-            </div>
-        </div>
-        <!-- end hot -->
-    </div>  
-    <!-- end middle container -->
-</div>
-<!-- end container -->
+
+	$name=$_POST['name'];
+
+	
+
+$sql= "select Name from member_info where member_id = '$account' and Password ='$password'  ";
+$result=mysql_query($connection, $sql);
+while($row = mysql_fetch_row($result)){
+  echo "<tr>
+        <td> $row[0] </td>
+       </tr>";
+
+}
+mysql_close($connection);
+?>
+
 </section>
 
 
@@ -159,3 +130,37 @@
 </html> 
 
 <script src="js/change_theme.js"></script>
+
+
+<!-- 
+
+<table>
+  <tr>
+    <td>姓名</td>
+  </tr>
+
+
+// session_start();
+// $account = $_POST['account'];
+// $password = $_POST['password'];
+// $account=$_SESSION['account']; 
+// $password=$_SESSION['password']; 
+// include('connect.php');
+// $sql = "SELECT * FROM member_info where member_id = '$account' and Password ='$password'";
+
+// $result = mysqli_query($connection, $sql);
+// while($row = mysqli_fetch_row($result))
+// {
+//          echo "<tr>
+//                 <td> $row[0] </td>
+//                 <td> $row[1] </td>
+//                 <td> $row[2] </td>
+//                 <td> $row[3] </td>
+//                 <td> $row[4] </td>
+//              </tr>";
+// }
+
+
+
+</table> -->
+    
