@@ -2,7 +2,7 @@ body{
     font-family: 'Poppins', sans-serif;
   }
   
-  .primary-btn{
+  .enter_button{
     background: #ffffff;
     color: #000;
     display: inline-block;
@@ -28,11 +28,11 @@ body{
     height: 100vh;
   }
   
-  .banner{
+  .main{
     position: relative;
     height: 100vh;
   }
-  .banner:after{
+  .main:after{
     position: absolute;
     content: "";
     background-color: #3e3e3e;
@@ -41,24 +41,24 @@ body{
     width: 100%;
     opacity: 0.4;
   }
-  .banner-content{
+  .main-content{
     position: absolute;
     left: 0;
     right: 0;
     margin: 0 auto;
     content:"";
     text-align: center;
-    top: 50%;
+    top: 45%;
     transform: translateY(-55%);
     z-index: 9;
   }
-  .banner-content h1{
+  .main-content h1{
     font-size: 6vw;
     color: #ffffff;
     text-transform: capitalize;
     line-height: 73px;
   }
-  .banner-content p{
+  .main-content p{
     color: #fff;
     max-width: 710px;
     width: 100%;
@@ -68,11 +68,11 @@ body{
   }
   
   @media (max-width: 750px) {
-    .banner-content p{
+    .main-content p{
       width: 90vw;
     }
   
-    .banner-content h1{
+    .main-content h1{
       font-size: 9vw;
       line-height: 53px;
     }

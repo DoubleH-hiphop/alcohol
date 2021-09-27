@@ -1,0 +1,41 @@
+
+
+footer{
+    background-color: black;
+    color: #fff;
+    padding-bottom: 30px;
+}
+
+footer a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 16px;
+    margin: 5px 5px;
+}
+footer h1{
+    text-align: center;
+    font-size: large;
+}
+
+footer li{
+    z-index: 99;
+}
+
+
+footer .text {
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+footer .text img{
+    padding-left: 10px;
+    padding-right: 20px;
+    vertical-align: middle;
+}
